@@ -1,0 +1,42 @@
+.ui-dialog {
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  border: 1px solid #26272b;
+  text-align: center;
+  background: #ffffff;
+  width: 900px;
+  height: 600px;
+  margin-top: -300px;
+  margin-left: -450px;
+}
+.ui-dialog .ui-dialog-title {
+  position: relative;
+  width: auto;
+  height: 40px;
+  line-height: 40px;
+  background-color: #26272b;
+  font-weight: 500;
+  color: #ffffff;
+}
+.ui-dialog .ui-dialog-title .ui-dialog-title-icon {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  cursor: pointer;
+}
+.ui-dialog .ui-dialog-content {
+  width: auto;
+  padding: 20px 20px 0 20px;
+  text-align: left;
+  overflow: auto;
+  max-height: calc(100vh - 125px);
+}
+.ui-dialog .ui-dialog-footer {
+  height: auto;
+  padding: 20px;
+  text-align: right;
+}
