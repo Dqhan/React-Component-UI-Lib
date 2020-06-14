@@ -32,14 +32,14 @@ function App() {
         <Dialog
             {...{
                 visible, handleOk, handleCancel, title: 'Dialog',
-                footer: [
-                    <Button key='back' text="back" onClick={handleCancel}>
-                        Return
-                  </Button>,
-                    <Button key='submit' text="submit" onClick={handleOk}>
-                        Submit
-                  </Button>,
-                ]
+                // footer: [
+                //     <Button key='back' text="back" onClick={handleCancel}>
+                //         Return
+                //   </Button>,
+                //     <Button key='submit' text="submit" onClick={handleOk}>
+                //         Submit
+                //   </Button>,
+                // ]
             }}
         >
             <div>

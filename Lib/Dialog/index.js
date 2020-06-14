@@ -1,10 +1,6 @@
 
 require('./style')
 
-var RDialog = require('./r_dialog');
-
-var RDialog = RDialog['default'];
-
 import Dialog from './p_dialog';
 
 let Modal = function Modal(props) {
