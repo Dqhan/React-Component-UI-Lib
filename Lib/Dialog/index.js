@@ -5,57 +5,52 @@ var RDialog = require('./r_dialog');
 
 var RDialog = RDialog['default'];
 
-// function Dialog(props) {
-//     var div = document.createElement('div');
-//     document.body.appendChild(div);
-//     return React.createElement(div, {},
-//         React.createElement(RDialog, {}, props.children)
-//     )
-// }
+import Dialog from './p_dialog';
 
-class Dialog extends React.Component {
+let Modal = function Modal(props) {
+    const _React$State = React.useState(document.createElement('div'));
+    const divNode = _React$State[0];
+    document.body.appendChild(divNode);
+    React.useEffect(() => {
+        return () => {
+            document.body.removeChild(divNode);
+        }
+    }, []);
 
-    constructor(props) {
-        super(props);
-    }
-
-    componentDidMount() {
-        this.div = document.createElement('div');
-        document.body.appendChild(this.div);
-        ReactDOM.render(<RDialog  {...this.props}>{this.props.children}</RDialog>, this.div)
-    }
-
-    componentDidUpdate() {
-        ReactDOM.render(<RDialog {...this.props}>{this.props.children}</RDialog>, this.div)
-    }
-
-    render() {
-        return null;
-    }
+    return ReactDOM.createPortal(<Dialog  {...props}>{props.children}</Dialog>, divNode)
 }
 
 
-// let Dialog = function Dialog(props) {
-//     let mount = React.useRef();
-//     let parentRef = React.useRef();
-//     let div = document.createElement('div');
-//     document.body.appendChild(div);
-//     // React.useEffect(() => {
-//     //     if (!mount.current) mount.current = true;
-//     //     else {
-//     //         ReactDOM.render(<RDialog ref={} {...this.props}>{this.props.children}</RDialog>, this.div)
-//     //     }
-//     // })
-//     ReactDOM.render(<RDialog ref={parentRef} {...props}>{props.children}</RDialog>, div)
-//     // useEffect(() => {
-//     //     ReactDOM.render(<RDialog ref={parentRef} {...this.props}>{this.props.children}</RDialog>, this.div)
-//     // })
-//     return null;
+// class Modal extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.div = document.createElement('div');
+//         document.body.appendChild(this.div);
+//     }
+//     componentDidMount() {
+
+//     }
+
+//     componentDidUpdate() {
+//         // ReactDOM.unstable_renderSubtreeIntoContainer(
+//         //     this,
+//         //     <Dialog  {...this.props}>{this.props.children}</Dialog>,
+//         //     this.div
+//         // );
+//     }
+
+//     render() {
+//         return ReactDOM.createPortal(<Dialog  {...this.props}>{this.props.children}</Dialog>, this.div);
+//     }
 // }
 
-Dialog.update = function (props) {
-    React.createElement(RDialog, props);
-}
+Modal.defaultProps = {
+    width: 520
+};
 
-var _default = Dialog;
+// Modal.update = function (props) {
+//     React.createElement(RDialog, props);
+// }
+
+var _default = Modal;
 export default _default;

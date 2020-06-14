@@ -90,23 +90,21 @@ function RDialog(_ops) {
         return React.createElement('div', {
             ref: dialogRef,
             className: "".concat(_prefixCls),
-        }, [
+        },
             renderTitle(),
             renderContent(),
             renderFooter()
-        ])
+        )
     }
     return _closed ? null : React.createElement('div', {
         className: "".concat('ui-back')
     }, renderDialog())
 }
 
-// let CDialog = React.forwardRef((props, ref) => {
-//     return React.createElement(RDialog, {
-//         ref: ref,
-//         ...props
-//     });
-// })
+
+RDialog.defaultProps = {
+
+}
 
 var _default = RDialog;
 export default _default;

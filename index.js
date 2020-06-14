@@ -4,20 +4,20 @@ import { useState } from 'react';
 import { Dialog, Button } from 'newda-lib';
 
 function App() {
-    const [closed, setClosed] = useState(true);
+    const [visible, setVisible] = useState(false);
 
     const handleOpenDialog = () => {
-        setClosed(false);
+        setVisible(true);
     }
 
     const handleOk = e => {
         console.log(e);
-        setClosed(true);
+        setVisible(false);
     };
 
     const handleCancel = e => {
         console.log(e);
-        setClosed(true);
+        setVisible(false);
     };
 
     const change = () => {
@@ -30,7 +30,17 @@ function App() {
         <Button onClick={handleOpenDialog} text="Click" />
         <Button onClick={change} text="Change" />
         <Dialog
-            {...{ closed, handleOk, handleCancel, title: 'Dialog' }}
+            {...{
+                visible, handleOk, handleCancel, title: 'Dialog',
+                footer: [
+                    <Button key='back' text="back" onClick={handleCancel}>
+                        Return
+                  </Button>,
+                    <Button key='submit' text="submit" onClick={handleOk}>
+                        Submit
+                  </Button>,
+                ]
+            }}
         >
             <div>
                 <p>666</p>

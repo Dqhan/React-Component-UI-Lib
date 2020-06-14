@@ -1,13 +1,13 @@
 require('./style')
 
 function Button(_ops) {
-    let _prefixCls = _ops.prefixCls || 'ui-button',
+    let _prefixCls = _ops.prefixCls,
         _className = _ops.className,
         _text = _ops.text,
         _disabled = _ops._disabled,
         onClick = _ops.onClick;
     let _baseProperty = {
-        className: "".concat(_prefixCls, `${" " + _className}`)
+        className: _className ? "".concat(_prefixCls, `${" " + _className}`) : _prefixCls
     }
 
 
@@ -24,6 +24,12 @@ function Button(_ops) {
 
 
     return React.createElement('button', _baseProperty, _text)
+}
+
+
+Button.defaultProps = {
+    prefixCls: 'ui-button',
+    _disabled: false
 }
 
 export default Button;
