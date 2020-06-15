@@ -27,7 +27,7 @@ module.exports = {
                                 camel2DashComponentName: false,
                                 camel2UnderlineComponentName: false,
                                 customName: (name) => {
-                                    return `./Lib/${name}`;
+                                    return `../../Lib/${name}`;
                                 },
                                 style: false,
                             },
