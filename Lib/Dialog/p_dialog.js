@@ -84,14 +84,12 @@ function PDialog(_o) {
         return React.createElement('div', {
             className: "".concat('ui-dialog-footer-inner')
         }, React.createElement(Button, {
-            text: 'Cancel',
             className: "".concat('ui-dialog-footer-inner-btn'),
             onClick: _handleCancelClick
-        }), React.createElement(Button, {
+        }, 'Cancel'), React.createElement(Button, {
             className: "".concat('ui-dialog-footer-inner-btn'),
-            text: 'Ok',
             onClick: _handleOkClick
-        }))
+        },'Ok'))
     }
 
     var _renderFooter = function _renderFooter() {

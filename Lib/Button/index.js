@@ -3,9 +3,9 @@ require('./style')
 function Button(_ops) {
     let _prefixCls = _ops.prefixCls,
         _className = _ops.className,
-        _text = _ops.text,
-        _disabled = _ops._disabled,
-        onClick = _ops.onClick;
+        _children = _ops.children,
+        _disabled = _ops.disabled,
+        _onClick = _ops.onClick;
     let _baseProperty = {
         className: _className ? "".concat(_prefixCls, `${" " + _className}`) : _prefixCls
     }
@@ -13,17 +13,17 @@ function Button(_ops) {
 
     if (_disabled === true) {
         Object.assign(_baseProperty, {
-            disabled,
+            disabled: _disabled,
         })
     } else {
         Object.assign(_baseProperty, {
-            onClick: onClick
+            onClick: _onClick
         })
     }
 
 
 
-    return React.createElement('button', _baseProperty, _text)
+    return React.createElement('button', _baseProperty, _children)
 }
 
 
