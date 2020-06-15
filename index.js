@@ -5,14 +5,8 @@ import DefaultDialog from "./Component/Dialog/DefaultDialog";
 import CustomDialog from "./Component/Dialog/CustomDialog";
 
 const components = [
-  {
-    name: "Default Dialog",
-    component: DefaultDialog,
-  },
-  {
-    name: "Custom Dialog",
-    component: CustomDialog,
-  },
+  { name: "Default Dialog", component: DefaultDialog, },
+  { name: "Custom Dialog", component: CustomDialog, },
 ];
 
 function App() {

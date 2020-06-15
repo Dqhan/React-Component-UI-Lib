@@ -1,6 +1,5 @@
 
 require('./style')
-import { useState, useRef, useEffect } from 'react';
 
 import GloEvent from '../_util/init_glo_event';
 
@@ -9,7 +8,9 @@ import CDialog from './c_dialog';
 import Button from '../Button';
 
 function PDialog(_o) {
-    var dialogRef = useRef(null);
+    var dialogRef = React.useRef();
+
+    // var okRef = React.useRef();
 
     var _prefixCls = _o.prefixCls,
         _title = _o.title,
@@ -27,6 +28,10 @@ function PDialog(_o) {
     // useEffect(() => {
     //     _setClosed(visible);
     // }, [visible])
+
+    // React.useEffect(() => {
+    //     // okRef.current.focus();
+    // })
 
 
     var onOk = (args) => {
@@ -53,11 +58,11 @@ function PDialog(_o) {
             _old,
             _new;
         e.preventDefault();
-        _a = dialogRef.current;
         _old = {};
         _new = {};
         // _setClosed(true);
-        handleDialogCloseCallback(GloEvent({ e: _a, old: _old, new: _new }), 'cancel');
+        // handleDialogCloseCallback(GloEvent({ e: e, old: _old, new: _new }), 'cancel');
+        handleDialogCloseCallback(e, 'cancel')
     }
 
     var _handleOkClick = function _handleOkClick(e) {
@@ -65,11 +70,11 @@ function PDialog(_o) {
             _old,
             _new;
         e.preventDefault();
-        _a = dialogRef.current;
         _old = {};
         _new = {};
         // _setClosed(true);
-        handleDialogCloseCallback(GloEvent({ e: _a, old: _old, new: _new }), 'ok');
+        // handleDialogCloseCallback(GloEvent({ e: e, old: _old, new: _new }), 'ok');
+        handleDialogCloseCallback(e, 'ok')
     }
 
     var closeIcon = React.createElement('div', {
@@ -81,23 +86,22 @@ function PDialog(_o) {
     }));
 
     var _renderDefaultFooter = function _renderDefaultFooter() {
-        return React.createElement('div', {
-            className: "".concat('ui-dialog-footer-inner')
-        }, React.createElement(Button, {
-            className: "".concat('ui-dialog-footer-inner-btn'),
-            onClick: _handleCancelClick
-        }, 'Cancel'), React.createElement(Button, {
-            className: "".concat('ui-dialog-footer-inner-btn'),
-            onClick: _handleOkClick
-        },'Ok'))
+        return [
+            React.createElement(Button, {
+                key: 'ok',
+                onClick: _handleOkClick
+            }, 'Ok'),
+            React.createElement(Button, {
+                key: 'cancel',
+                onClick: _handleCancelClick
+            }, 'Cancel')
+        ]
     }
 
     var _renderFooter = function _renderFooter() {
-        return React.createElement('div', {
-            className: "".concat('ui-dialog-footer-inner')
-        }, _footer.map(f => {
+        return _footer.map(f => {
             return f;
-        }))
+        })
     }
 
     return React.createElement(CDialog, {
@@ -105,7 +109,7 @@ function PDialog(_o) {
         visible: _visible,
         title: _title !== void 0 ? _title : void 0,
         closeIcon: _closeIcon === true ? null : closeIcon,
-        footer: _footer !== null ? _renderFooter() : _closeFooter === true ? null : _renderDefaultFooter(),
+        footer: _footer !== null ? _footer : _closeFooter === true ? null : _renderDefaultFooter(),
         children: _children,
         width: _width
     })
