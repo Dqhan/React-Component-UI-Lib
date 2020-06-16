@@ -1,5 +1,6 @@
 import dialog from './Dialog';
 import button from './Button';
+import forms from './Forms';
 // Object.defineProperty(exports, "dialog", {
 //     enumerable: true,
 //     get: function get() {
@@ -9,7 +10,8 @@ import button from './Button';
 
 export {
     dialog,
-    button
+    button,
+    forms
 }
 
 if (typeof window !== 'undefined') {

@@ -19,8 +19,8 @@ function Custom() {
   };
 
   return (
-    <div>
-      <Button onClick={handleOpenDialog}>Click</Button>
+    <React.Fragment>
+      <Button onClick={handleOpenDialog}>Show Dialog</Button>
       <Dialog
         {...{
           visible,
@@ -43,7 +43,7 @@ function Custom() {
           <p>jjjjjjjjj</p>
         </div>
       </Dialog>
-    </div>
+    </React.Fragment>
   );
 }
 

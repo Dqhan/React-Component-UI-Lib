@@ -19,8 +19,8 @@ function Default() {
   };
 
   return (
-    <div>
-      <Button onClick={handleOpenDialog}>Click</Button>
+    <React.Fragment>
+      <Button onClick={handleOpenDialog}>Show Dialog</Button>
       <Dialog
         {...{
           visible,
@@ -35,7 +35,7 @@ function Default() {
           <p>888</p>
         </div>
       </Dialog>
-    </div>
+    </React.Fragment>
   );
 }
 export default Default;

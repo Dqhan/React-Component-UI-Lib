@@ -5,13 +5,19 @@ function InternalButton(_ops, _ref) {
         _className = _ops.className,
         _children = _ops.children,
         _disabled = _ops.disabled,
-        _onClick = _ops.onClick;
+        _onClick = _ops.onClick,
+        _wrapStyle = _ops.style;
 
     var _ref = _ref || React.createRef();
 
+    var _style = {};
+
+    Object.assign(_style, _wrapStyle);
+
     let _baseProperty = {
         ref: _ref,
-        className: _className ? "".concat(_prefixCls, `${" " + _className}`) : _prefixCls
+        className: _className ? "".concat(_prefixCls, `${" " + _className}`) : _prefixCls,
+        style: _style
     }
 
     if (_disabled === true) {
