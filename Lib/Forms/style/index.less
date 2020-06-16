@@ -1,33 +1,46 @@
 .ui-forms {
     background-color: #A6FFFF;
-
     .ui-forms-field {
-        width       : 30%;
-        display     : inline-block;
+        width: 30%;
+        display: inline-block;
         margin-right: 30px;
-
         .ui-forms-field-input {
-            margin : 10px 0;
+            margin: 10px 0;
             display: flex;
-
             .ui-forms-field-cell {
                 margin: 5px;
-                flex  : 1;
+                flex: 1;
             }
         }
-
         .ui-forms-field-layout {
-            margin : 10px 0;
+            margin: 10px 0;
             display: flex;
-
             .ui-forms-field-cell {
                 margin: 5px;
-                flex  : 1;
+                flex: 1;
             }
         }
     }
-
     .ui-forms-edit {
-        display: inline-block;
+        display: flex;
+        vertical-align: top;
+        height: 500px;
+        padding: 20px;
+        border: 1px dashed;
+        .ui-forms-edit-cell {
+            flex: 1;
+            display: flex;
+            padding: 20px;
+            border: 1px dashed;
+            margin: 20px;
+            .ui-forms-edit-cell-plus {
+                flex: 1;
+                text-align: center;
+                cursor: pointer;
+                &:hover {
+                    background-color: aquamarine;
+                }
+            }
+        }
     }
 }

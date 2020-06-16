@@ -14,20 +14,10 @@ function Form(props) {
       },
     ],
   });
-//   const renderFormCell = (data) => {
-//     // for (var key in data) {
-//     //   if (typeof data[key] === "object") {
-//     //     renderFormCell(data[key]);
-//     //   } else {
-//     //     var currentLevel = data[key];
-//     //     Object.keys(currentLevel)
-//     //     return React.createElement(FormCell, {});
-//     //   }
-//     // }
-//     return React.createElement(FormCell, {
-//       data: data,
-//     });
-//   };
+
+  var _onClick = function onClick(e) {
+    setData(JSON.parse(JSON.stringify(data)));
+  };
 
   return React.createElement(
     "div",
@@ -36,9 +26,12 @@ function Form(props) {
     },
     React.createElement(FormCell, {
       data: data,
+      onClick: _onClick
     })
   );
 }
+
+
 
 var _default = Form;
 export default _default;
