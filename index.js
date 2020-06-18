@@ -5,12 +5,15 @@ import DefaultButton from "./Component/Button/DefaultButton";
 import CustomButton from "./Component/Button/CustomButton";
 import DefaultDialog from "./Component/Dialog/DefaultDialog";
 import CustomDialog from "./Component/Dialog/CustomDialog";
+import Confrim from "./Component/Confrim/Confrim";
 import Forms from "./Component/Forms/Forms";
+
 const components = [
   { name: "Default Button", component: DefaultButton },
   { name: "Custom Button", component: CustomButton },
   { name: "Default Dialog", component: DefaultDialog },
   { name: "Custom Dialog", component: CustomDialog },
+  { name: "Confrim", component: Confrim },
   { name: "Forms", component: Forms },
 ];
 
