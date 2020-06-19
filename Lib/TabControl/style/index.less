@@ -1,0 +1,34 @@
+.ui-tabcontrol-root {
+    display       : flex;
+    flex-direction: column;
+
+    .ui-tabcontrol-root-container {
+        .ui-tabcontrol-root-container-item {
+            display         : inline-block;
+            padding         : 5px 35px;
+            cursor          : pointer;
+            background-color: #02F78E;
+            border          : 1px solid;
+        }
+
+        .active {
+            border-top             : 5px solid;
+            border-top-right-radius: 5px;
+            border-top-left-radius : 5px;
+        }
+    }
+
+    .ui-tabcontrol-root-content {
+        flex: 1;
+
+        .ui-tabcontrol-root-content-item {
+            padding   : 5px;
+            min-height: 100px;
+        }
+
+        .un-active {
+            display: none;
+        }
+
+    }
+}
