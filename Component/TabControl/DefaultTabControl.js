@@ -6,12 +6,16 @@ function DefaultTabControl() {
     { template: "tab 2" },
     { template: "tab 3" },
   ]);
+
+  const [selectedIndex, setSelectIndex] = React.useState(0);
+
   const handleClick = (e, index) => {
-    console.log(index);
+    setSelectIndex(index);
   };
+
   return (
     <React.Fragment>
-      <TabControl items={items} handleClick={handleClick}>
+      <TabControl items={items} selectedIndex={selectedIndex} handleClick={handleClick}>
         <div>Content 1</div>
         <div>Content 2</div>
         <div>Content 3</div>
