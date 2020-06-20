@@ -9,8 +9,10 @@ import forms from "./Forms";
 // });
 
 import confrim from "./Confrim";
+import tabcontrol from './TabControl';
+import wrapper from './Wrapper';
 
-export { dialog, button, forms, confrim };
+export { dialog, button, forms, confrim, tabcontrol, wrapper };
 
 if (typeof window !== "undefined") {
   console.warn("runtime must be window.");

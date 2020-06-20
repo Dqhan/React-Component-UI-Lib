@@ -9,6 +9,7 @@ import Confrim from "./Component/Confrim/Confrim";
 import Forms from "./Component/Forms/Forms";
 import DefaultTabControl from "./Component/TabControl/DefaultTabControl";
 import CustomTabControl from "./Component/TabControl/CustomTabControl";
+import Wrapper from './Component/Wrapper/Wrapper';
 
 const components = [
   { name: "Default Button", component: DefaultButton },
@@ -16,6 +17,7 @@ const components = [
   { name: "Default Dialog", component: DefaultDialog },
   { name: "Custom Dialog", component: CustomDialog },
   { name: "Confrim", component: Confrim },
+  { name: "Wrapper", component: Wrapper },
   { name: "Default TabControl", component: DefaultTabControl },
   { name: "Custom TabControl", component: CustomTabControl },
   { name: "Forms", component: Forms },
