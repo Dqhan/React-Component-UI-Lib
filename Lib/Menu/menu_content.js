@@ -7,7 +7,7 @@ function Content(_props) {
 
 
 Content.defaultProps = {
-    preflxCls: "ui-wrapper"
+    preflxCls: "ui-menu"
 }
 
 var _default = Content;

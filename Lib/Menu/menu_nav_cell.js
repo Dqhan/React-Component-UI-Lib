@@ -50,7 +50,7 @@ function NavCell(_props) {
     var baseClass = {
         className: "".concat(_preflxCls, "-nav-item-content"),
     }
- 
+
     typeof _extend === "boolean" && Object.assign(baseClass, {
         onClick: _onClick
     })
@@ -73,7 +73,7 @@ function NavCell(_props) {
 
 
 NavCell.defaultProps = {
-    preflxCls: "ui-wrapper"
+    preflxCls: "ui-menu"
 }
 
 var _default = NavCell;

@@ -1,7 +1,7 @@
 
-import NavCell from './wrapper_nav_cell';
+import NavCell from './menu_nav_cell';
 
-function WrapperNav(_props) {
+function MenuNav(_props) {
     let _data = _props.data,
         _preflxCls = _props.preflxCls;
 
@@ -19,9 +19,9 @@ function WrapperNav(_props) {
 }
 
 
-WrapperNav.defaultProps = {
-    preflxCls: "ui-wrapper"
+MenuNav.defaultProps = {
+    preflxCls: "ui-menu"
 }
 
-var _default = WrapperNav;
+var _default = MenuNav;
 export default _default;
