@@ -1,52 +1,85 @@
 .ui-menu-root {
-    display: flex;
+    display       : flex;
     flex-direction: row;
+
     ul {
         padding: 0;
     }
-    .ui-menu-nav {
-        flex: 0;
+
+    .ui-menu-container {
+        flex      : 0;
         list-style: none;
-        padding: 0 30px;
-        .ui-menu-nav-item {
-            border-right: 1px solid #e9e9e9;
-            margin-left: -1px;
-            left: 1px;
-            position: relative;
-            z-index: 1;
-            list-style: none;
-            line-height: 42px;
-            padding: 0 15px;
-            cursor: pointer;
-            .ui-menu-nav-item-content {
-                h4 {
-                    padding: 0;
-                    margin: 0;
-                    display: inline;
-                }
-                .ui-menu-nav-item-content-icon {
-                    display: inline;
-                    font-size: 25px;
-                    vertical-align: middle;
-                    margin-left: 30px;
-                }
-            }
-            .ui-menu-nav-sub {
-                list-style: none; // .ui-menu-nav-item {
-                //     border-right: 1px solid #e9e9e9;
-                //     margin-left: -1px;
-                //     left: 1px;
-                //     position: relative;
-                //     z-index: 1;
-                //     list-style: none;
-                // }
-            }
-            .ui-menu-nav-sub-display-none {
-                display: none;
-                list-style: none;
+        padding   : 0 30px;
+
+        .selected {
+            color           : #1890ff;
+            background-color: #18c9ffa4;
+
+            &::after {
+                position    : absolute;
+                top         : 0;
+                right       : 0;
+                bottom      : 0;
+                border-right: 3px solid #1890ff;
+                content     : '';
             }
         }
+
+        .ui-menu-cell {
+            border-right: 1px solid #e9e9e9;
+            margin-left : -1px;
+            left        : 1px;
+            position    : relative;
+            z-index     : 1;
+            list-style  : none;
+            line-height : 42px;
+            cursor      : pointer;
+
+            .ui-menu-icon {
+                display       : inline;
+                font-size     : 25px;
+                vertical-align: middle;
+                margin-left   : 30px;
+            }
+
+            .ui-menu-group-cell {
+                list-style: none;
+
+                .ui-menu-group-cell-title {
+                    border-right: 1px solid #e9e9e9;
+                    margin-left : -1px;
+                    left        : 1px;
+                    position    : relative;
+                    z-index     : 1;
+                    list-style  : none;
+                    line-height : 42px;
+                    padding     : 0 10px;
+                    font-weight : 200;
+                    cursor      : default;
+                }
+
+                .ui-menu-group-cell-container {
+                    list-style: none;
+                }
+            }
+
+            .ui-menu-item-cell {
+                .ui-menu-item-cell-title {
+                    border-right: 1px solid #e9e9e9;
+                    margin-left : -1px;
+                    left        : 1px;
+                    position    : relative;
+                    z-index     : 1;
+                    list-style  : none;
+                    line-height : 42px;
+                    cursor      : pointer;
+                }
+            }
+
+
+        }
     }
+
     .ui-menu-content {
         flex: 1;
     }
