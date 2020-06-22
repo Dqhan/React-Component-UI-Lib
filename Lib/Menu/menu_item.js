@@ -26,8 +26,8 @@ var Item = function Item(_props) {
         },
         mouseEvent
       ),
-      React.Children.map(_children, function (c, i) {
-        return typeof c === "string" ? c : React.cloneElement(c, { key: i });
+      React.Children.map(_children, function (c) {
+        return typeof c === "string" ? c : React.cloneElement(c, Object.assign({}));
       })
     );
   };

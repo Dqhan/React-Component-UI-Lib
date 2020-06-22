@@ -8,6 +8,7 @@ var MenuItemGroup = function MenuItemGroup(_props) {
     _props.onClick(e);
   };
 
+
   var _mouseEvent = {
     onClick: _onClick,
   };
@@ -35,7 +36,7 @@ var MenuItemGroup = function MenuItemGroup(_props) {
       React.Children.map(_children, function (c, i) {
         return React.cloneElement(
           c,
-          Object.assign({}, { key: i }, groupCellProps)
+          Object.assign({}, groupCellProps, _mouseEvent)
         );
       })
     );
