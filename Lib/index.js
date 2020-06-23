@@ -10,7 +10,7 @@ import forms from "./Forms";
 
 import confrim from "./Confrim";
 import tabcontrol from './TabControl';
-import menu from './Wrapper';
+import menu from './Menu';
 
 export { dialog, button, forms, confrim, tabcontrol, menu };
 

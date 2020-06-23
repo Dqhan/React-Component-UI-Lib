@@ -1,8 +1,9 @@
 function Content(_props) {
-    var _preflxCls = _props.preflxCls;
+    var _preflxCls = _props.preflxCls,
+        _children = _props.children;
     return React.createElement('div', {
         className: "".concat(_preflxCls, "-content")
-    })
+    }, _children)
 }
 
 

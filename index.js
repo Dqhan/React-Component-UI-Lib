@@ -1,40 +1,9 @@
-require("./content/index");
-require("./content/demo");
-
-import DefaultButton from "./Component/Button/DefaultButton";
-import CustomButton from "./Component/Button/CustomButton";
-import DefaultDialog from "./Component/Dialog/DefaultDialog";
-import CustomDialog from "./Component/Dialog/CustomDialog";
-import Confrim from "./Component/Confrim/Confrim";
-import Forms from "./Component/Forms/Forms";
-import DefaultTabControl from "./Component/TabControl/DefaultTabControl";
-import CustomTabControl from "./Component/TabControl/CustomTabControl";
-import Wrapper from './Component/Wrapper/Wrapper';
-
-const components = [
-  { name: "Default Button", component: DefaultButton },
-  { name: "Custom Button", component: CustomButton },
-  { name: "Default Dialog", component: DefaultDialog },
-  { name: "Custom Dialog", component: CustomDialog },
-  { name: "Confrim", component: Confrim },
-  { name: "Wrapper", component: Wrapper },
-  { name: "Default TabControl", component: DefaultTabControl },
-  { name: "Custom TabControl", component: CustomTabControl },
-  { name: "Forms", component: Forms },
-];
+import Home from './WebComponent/Home';
 
 function App() {
   return (
     <div>
-      <h1>React UI Library</h1>
-      {components.map((c, index) => {
-        return (
-          <section key={index}>
-            <p>{c.name}</p>
-            <c.component />
-          </section>
-        );
-      })}
+      <Home />
     </div>
   );
 }

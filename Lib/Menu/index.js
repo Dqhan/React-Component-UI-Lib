@@ -2,6 +2,7 @@ require("./style");
 import SubMenu from "./sub_menu";
 import MenuItemGroup from "./menu_item_group";
 import Item from "./menu_item";
+import Content from './menu_content';
 
 function Menu(_props) {
   let _preflxCls = _props.preflxCls,
@@ -12,10 +13,7 @@ function Menu(_props) {
     // extendKeys: [],
   });
 
-  const //  _React$State = (0, React.useState)(true),
-    //   _extendFlag = _React$State[0],
-    //   _setExtendFlag = _React$State[1],
-    _React$State1 = (0, React.useState)(true),
+  const _React$State1 = (0, React.useState)(true),
     _selectedFlag = _React$State1[0],
     _setselectedFlag = _React$State1[1];
 
@@ -24,16 +22,6 @@ function Menu(_props) {
     _keyRef.current.selectedKeys.push(info.key);
     return info.key;
   };
-
-  // var _updateExtendKeys = function _updateExtendKeys(info) {
-  //   // _keyRef.current.extendKeys.length = 0;
-  //   if (info.extend === true) _keyRef.current.extendKeys.push(info.key);
-  //   else {
-  //     var index = _keyRef.current.extendKeys.indexOf(info.key);
-  //     _keyRef.current.extendKeys.splice(index, 1);
-  //   }
-  //   return info.key;
-  // };
 
   var _onClick = function _onClick(info) {
     var selectedKey = info.key;
@@ -48,18 +36,12 @@ function Menu(_props) {
     _setselectedFlag(!_selectedFlag);
   };
 
-  // var _onExtend = function _onExtend(info) {
-  //   (0, _updateExtendKeys)(info);
-  //   _setExtendFlag(!_extendFlag);
-  // };
+  var _onMouseHover = function _onMouseHover(info) { };
 
-  var _onMouseHover = function _onMouseHover(info) {};
-
-  var _onMouseEnter = function _onMouseEnter(info) {};
+  var _onMouseEnter = function _onMouseEnter(info) { };
 
   var mouseEvent = {
     onClick: _onClick,
-    // onExtend: _onExtend,
     onSelected: _onSelected,
     onMouseHover: _onMouseHover,
     onMouseEnter: _onMouseEnter,
@@ -142,6 +124,10 @@ Menu.Item = function (_props) {
     _props.children
   );
 };
+
+Menu.Content = function (_props) {
+  return React.createElement(Content, {}, _props.children)
+}
 
 Menu.defaultProps = {
   preflxCls: "ui-menu",

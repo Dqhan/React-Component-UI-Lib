@@ -3,7 +3,6 @@ var MenuItemGroup = function MenuItemGroup(_props) {
     _children = _props.children,
     _title = _props.title,
     _selectedKeys = _props.selectedKeys;
-  // _extendKeys = _props.extendKeys;
 
   var _renderTitle = function _renderTitle() {
     return React.createElement(
@@ -28,7 +27,6 @@ var MenuItemGroup = function MenuItemGroup(_props) {
 
   var groupCellProps = {
     selectedKeys: _selectedKeys,
-    // extendKeys: _extendKeys,
   };
 
   var _renderGroupContainer = function _renderGroupContainer() {

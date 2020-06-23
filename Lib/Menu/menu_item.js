@@ -3,7 +3,6 @@ var Item = function Item(_props) {
     _children = _props.children,
     _eventKey = _props.eventKey,
     _selectedKeys = _props.selectedKeys;
-  // _extendKeys = _props.extendKeys;
 
   var _selected = _selectedKeys.includes(_eventKey);
 
@@ -46,8 +45,6 @@ var Item = function Item(_props) {
 
   var _mouseEvent = {
     onClick: _onTitleClick,
-    // onMouseHover: _onMouseHover,
-    // onMouseEnter: _onMouseEnter,
   };
 
   var _renderTitle = function _renderTitle() {

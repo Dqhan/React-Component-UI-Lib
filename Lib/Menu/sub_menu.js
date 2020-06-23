@@ -4,7 +4,6 @@ var SubMenu = function SubMenu(_props) {
     _title = _props.title,
     _eventKey = _props.eventKey,
     _selectedKeys = _props.selectedKeys;
-  // _extendKeys = _props.extendKeys;
 
   var _selected = _selectedKeys.includes(_eventKey);
   const _React$State = (0, React.useState)(true),
@@ -29,16 +28,6 @@ var SubMenu = function SubMenu(_props) {
       _refState[name] = node;
     };
   };
-
-  // var _onExtend = function _onExtend(e) {
-  //   var _props4 = _props,
-  //     onExtend = _props4.onExtend;
-  //   onExtend({
-  //     key: _eventKey,
-  //     domEvent: e,
-  //     extend: !_extend,
-  //   });
-  // };
 
   var _onSelected = function (info) {
     var _props5 = _props,
@@ -82,7 +71,7 @@ var SubMenu = function SubMenu(_props) {
     var _props3 = _props;
   };
 
-  var _onMouseHover = function _onMouseHover(e) {};
+  var _onMouseHover = function _onMouseHover(e) { };
 
   var _titleMouseEvent = {
     onClick: _onTitleClick,
@@ -111,7 +100,6 @@ var SubMenu = function SubMenu(_props) {
 
   var _mouseEvent = {
     onClick: _onClick,
-    // onExtend: _onExtend,
     onSelected: _onSelected,
     onMouseHover: _onMouseHover,
     onMouseEnter: _onMouseEnter,
@@ -119,7 +107,6 @@ var SubMenu = function SubMenu(_props) {
 
   var _menuGroupProps = {
     selectedKeys: _selectedKeys,
-    // extendKeys: _extendKeys,
   };
 
   var _renderMenuItme = function _renderMenuItme(c, i) {
@@ -132,14 +119,14 @@ var SubMenu = function SubMenu(_props) {
   var _renderMenuCellContainer = function _renderMenuCellContainer() {
     return _extend === true
       ? React.createElement(
-          "ul",
-          {
-            className: "".concat(_preflxCls, "-cell-container"),
-          },
-          React.Children.map(_children, function (c, i) {
-            return _renderMenuItme(c, i);
-          })
-        )
+        "ul",
+        {
+          className: "".concat(_preflxCls, "-cell-container"),
+        },
+        React.Children.map(_children, function (c, i) {
+          return _renderMenuItme(c, i);
+        })
+      )
       : null;
   };
 

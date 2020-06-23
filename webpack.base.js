@@ -24,6 +24,7 @@ module.exports = {
                             "import",
                             {
                                 libraryName: "newda-lib",
+                                libraryDirectory: 'lib',
                                 camel2DashComponentName: false,
                                 camel2UnderlineComponentName: false,
                                 customName: (name) => {
