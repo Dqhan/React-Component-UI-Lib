@@ -1,42 +1,44 @@
 var MenuItemGroup = function MenuItemGroup(_props) {
   var _preflxCls = _props.preflxCls,
     _children = _props.children,
-    _title = _props.title;
-
-  var _onClick = function _onClick(e) {
-    e.preventDefault();
-    _props.onClick(e);
-  };
-
-
-  var _mouseEvent = {
-    onClick: _onClick,
-  };
+    _title = _props.title,
+    _selectedKeys = _props.selectedKeys;
+  // _extendKeys = _props.extendKeys;
 
   var _renderTitle = function _renderTitle() {
     return React.createElement(
       "div",
       Object.assign(
         {},
-        { className: "".concat(_preflxCls, "-group-cell-title") },
-        _mouseEvent
+        {
+          className: "".concat(_preflxCls, "-group-cell-title"),
+        }
       ),
       _title
     );
   };
 
-  var groupCellProps = {};
+  var _mouseEvent = {
+    onClick: _props.onClick,
+    onExtend: _props.onExtend,
+    onSelected: _props.onSelected,
+    onMouseHover: _props.onMouseHover,
+    onMouseEnter: _props.onMouseEnter,
+  };
+
+  var groupCellProps = {
+    selectedKeys: _selectedKeys,
+    // extendKeys: _extendKeys,
+  };
 
   var _renderGroupContainer = function _renderGroupContainer() {
     return React.createElement(
       "ul",
-      {
-        className: "".concat(_preflxCls, "-group-cell-container"),
-      },
+      { className: "".concat(_preflxCls, "-group-cell-container") },
       React.Children.map(_children, function (c, i) {
         return React.cloneElement(
           c,
-          Object.assign({}, groupCellProps, _mouseEvent)
+          Object.assign({}, groupCellProps, { eventKey: c.key }, _mouseEvent)
         );
       })
     );
@@ -46,6 +48,7 @@ var MenuItemGroup = function MenuItemGroup(_props) {
     "li",
     {
       className: "".concat(_preflxCls, "-group-cell"),
+      style: { paddingLeft: 15 + "px" },
     },
     _renderTitle(),
     _renderGroupContainer()
