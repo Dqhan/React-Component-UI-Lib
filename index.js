@@ -1,3 +1,5 @@
+require('./content/index.less')
+
 import Home from './WebComponent/Home';
 
 function App() {

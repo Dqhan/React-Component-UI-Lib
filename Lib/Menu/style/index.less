@@ -9,26 +9,42 @@
         list-style: none;
         padding: 0 30px;
         .selected {
-            color: #1890ff;
-            background-color: #18c9ffa4;
+            color: #2db7f5;
             &::after {
                 position: absolute;
                 top: 0;
                 right: 0;
                 bottom: 0;
-                border-right: 3px solid #1890ff;
+                border-right: 3px solid #2db7f5;
                 content: '';
             }
+        }
+        .hover {
+            color: #2db7f5;
         }
         .ui-menu-cell {
             border-right: 1px solid #e9e9e9;
             margin-left: -1px;
             left: 1px;
-            position: relative;
             z-index: 1;
             list-style: none;
             line-height: 42px;
             cursor: pointer;
+            .ui-menu-cell-title {
+                padding-right: 40px;
+                position: relative;
+                &::before {
+                    position: absolute;
+                    background-color: transparent;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    content: "";
+                }
+            }
             .ui-menu-icon {
                 display: inline;
                 font-size: 25px;
@@ -38,24 +54,25 @@
             .ui-menu-group-cell {
                 list-style: none;
                 .ui-menu-group-cell-title {
-                    border-right: 1px solid #e9e9e9;
                     margin-left: -1px;
                     left: 1px;
                     position: relative;
                     z-index: 1;
                     list-style: none;
-                    line-height: 42px;
-                    padding: 0 10px;
-                    font-weight: 200;
                     cursor: default;
+                    color: #999;
+                    font-size: 12px;
+                    line-height: 1.5;
+                    padding: 10px;
                 }
                 .ui-menu-group-cell-container {
                     list-style: none;
                 }
             }
             .ui-menu-item-cell {
+                position: relative;
                 .ui-menu-item-cell-title {
-                    border-right: 1px solid #e9e9e9;
+                    padding-left: 10px;
                     margin-left: -1px;
                     left: 1px;
                     position: relative;
@@ -63,6 +80,17 @@
                     list-style: none;
                     line-height: 42px;
                     cursor: pointer;
+                }
+                &::before {
+                    position: absolute;
+                    background-color: transparent;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    content: "";
                 }
             }
         }

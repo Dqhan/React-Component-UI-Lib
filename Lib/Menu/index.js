@@ -11,15 +11,26 @@ function Menu(_props) {
   const _keyRef = React.useRef({
     selectedKeys: [],
     // extendKeys: [],
+    hoverKeys: []
   });
 
   const _React$State1 = (0, React.useState)(true),
     _selectedFlag = _React$State1[0],
     _setselectedFlag = _React$State1[1];
 
+  const _React$State2 = (0, React.useState)(true),
+    _hoverFlag = _React$State2[0],
+    _setHoverFlag = _React$State2[1];
+
   var _updateSelectedKeys = function _updateSelectedKeys(info) {
     _keyRef.current.selectedKeys.length = 0;
     _keyRef.current.selectedKeys.push(info.key);
+    return info.key;
+  };
+
+  var _updateHoverKeys = function _updateHoverKeys(info) {
+    _keyRef.current.hoverKeys.length = 0;
+    _keyRef.current.hoverKeys.push(info.key);
     return info.key;
   };
 
@@ -36,14 +47,17 @@ function Menu(_props) {
     _setselectedFlag(!_selectedFlag);
   };
 
-  var _onMouseHover = function _onMouseHover(info) { };
+  var _onMouseOver = function _onMouseOver(info) {
+    (0, _updateHoverKeys)(info);
+    _setHoverFlag(!_hoverFlag);
+  };
 
   var _onMouseEnter = function _onMouseEnter(info) { };
 
   var mouseEvent = {
     onClick: _onClick,
     onSelected: _onSelected,
-    onMouseHover: _onMouseHover,
+    onMouseOver: _onMouseOver,
     onMouseEnter: _onMouseEnter,
   };
 
@@ -61,7 +75,7 @@ function Menu(_props) {
             {
               eventKey: c.key,
               selectedKeys: _keyRef.current.selectedKeys,
-              extendKeys: _keyRef.current.extendKeys,
+              hoverKeys: _keyRef.current.hoverKeys,
             },
             mouseEvent
           )
@@ -88,8 +102,8 @@ Menu.SubMenu = function (_props) {
       onClick: _props.onClick,
       onSelected: _props.onSelected,
       selectedKeys: _props.selectedKeys,
-      onExtend: _props.onExtend,
-      extendKeys: _props.extendKeys,
+      onMouseOver: _props.onMouseOver,
+      hoverKeys: _props.hoverKeys,
     },
     _props.children
   );
@@ -103,8 +117,8 @@ Menu.MenuItemGroup = function (_props) {
       onClick: _props.onClick,
       onSelected: _props.onSelected,
       selectedKeys: _props.selectedKeys,
-      onExtend: _props.onExtend,
-      extendKeys: _props.extendKeys,
+      onMouseOver: _props.onMouseOver,
+      hoverKeys: _props.hoverKeys,
     },
     _props.children
   );
@@ -118,8 +132,8 @@ Menu.Item = function (_props) {
       onClick: _props.onClick,
       onSelected: _props.onSelected,
       selectedKeys: _props.selectedKeys,
-      onExtend: _props.onExtend,
-      extendKeys: _props.extendKeys,
+      onMouseOver: _props.onMouseOver,
+      hoverKeys: _props.hoverKeys,
     },
     _props.children
   );
