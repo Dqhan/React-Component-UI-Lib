@@ -20,15 +20,13 @@ var MenuItemGroup = function MenuItemGroup(_props) {
 
   var _mouseEvent = {
     onClick: _props.onClick,
-    onExtend: _props.onExtend,
     onSelected: _props.onSelected,
-    onMouseOver: _props.onMouseOver,
-    onMouseEnter: _props.onMouseEnter,
+    onMouseHover: _props.onMouseHover,
   };
 
   var groupCellProps = {
     selectedKeys: _selectedKeys,
-    hoverKeys: _hoverKeys
+    hoverKeys: _hoverKeys,
   };
 
   var _renderGroupContainer = function _renderGroupContainer() {

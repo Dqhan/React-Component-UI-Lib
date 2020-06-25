@@ -2,16 +2,16 @@ require("./style");
 import SubMenu from "./sub_menu";
 import MenuItemGroup from "./menu_item_group";
 import Item from "./menu_item";
-import Content from './menu_content';
+import Content from "./menu_content";
 
 function Menu(_props) {
   let _preflxCls = _props.preflxCls,
-    _children = _props.children;
+    _children = _props.children,
+    _defaultKey = _props.defaultKey;
 
   const _keyRef = React.useRef({
-    selectedKeys: [],
-    // extendKeys: [],
-    hoverKeys: []
+    selectedKeys: [_defaultKey],
+    hoverKeys: [],
   });
 
   const _React$State1 = (0, React.useState)(true),
@@ -30,7 +30,10 @@ function Menu(_props) {
 
   var _updateHoverKeys = function _updateHoverKeys(info) {
     _keyRef.current.hoverKeys.length = 0;
-    _keyRef.current.hoverKeys.push(info.key);
+    if (info.hover === true) {
+      _keyRef.current.hoverKeys.push(info.key);
+    } else {
+    }
     return info.key;
   };
 
@@ -47,18 +50,15 @@ function Menu(_props) {
     _setselectedFlag(!_selectedFlag);
   };
 
-  var _onMouseOver = function _onMouseOver(info) {
+  var _onMouseHover = function _onMouseHover(info) {
     (0, _updateHoverKeys)(info);
     _setHoverFlag(!_hoverFlag);
   };
 
-  var _onMouseEnter = function _onMouseEnter(info) { };
-
   var mouseEvent = {
     onClick: _onClick,
     onSelected: _onSelected,
-    onMouseOver: _onMouseOver,
-    onMouseEnter: _onMouseEnter,
+    onMouseHover: _onMouseHover,
   };
 
   var menuCellProps = {};
@@ -102,7 +102,7 @@ Menu.SubMenu = function (_props) {
       onClick: _props.onClick,
       onSelected: _props.onSelected,
       selectedKeys: _props.selectedKeys,
-      onMouseOver: _props.onMouseOver,
+      onMouseHover: _props.onMouseHover,
       hoverKeys: _props.hoverKeys,
     },
     _props.children
@@ -117,7 +117,7 @@ Menu.MenuItemGroup = function (_props) {
       onClick: _props.onClick,
       onSelected: _props.onSelected,
       selectedKeys: _props.selectedKeys,
-      onMouseOver: _props.onMouseOver,
+      onMouseHover: _props.onMouseHover,
       hoverKeys: _props.hoverKeys,
     },
     _props.children
@@ -132,7 +132,7 @@ Menu.Item = function (_props) {
       onClick: _props.onClick,
       onSelected: _props.onSelected,
       selectedKeys: _props.selectedKeys,
-      onMouseOver: _props.onMouseOver,
+      onMouseHover: _props.onMouseHover,
       hoverKeys: _props.hoverKeys,
     },
     _props.children
@@ -140,8 +140,8 @@ Menu.Item = function (_props) {
 };
 
 Menu.Content = function (_props) {
-  return React.createElement(Content, {}, _props.children)
-}
+  return React.createElement(Content, {}, _props.children);
+};
 
 Menu.defaultProps = {
   preflxCls: "ui-menu",

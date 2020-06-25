@@ -1,10 +1,3 @@
-
-
-
-// import Forms from "./Component/Forms/Forms";
-// import DefaultTabControl from "./Component/TabControl/DefaultTabControl";
-// import CustomTabControl from "./Component/TabControl/CustomTabControl";
-// import Wrapper from './Component/Wrapper/Wrapper';
 require('./style.less');
 
 import { Menu } from 'newda-lib';
@@ -17,11 +10,12 @@ import Button from '../../Component/Button';
 import Dialog from '../../Component/Dialog';
 import Confrim from "../../Component/Confrim";
 import TabControl from '../../Component/TabControl';
-import MenuIndex from "../../Component/Menu"
+import MenuIndex from "../../Component/Menu";
+import Rate from "../../Component/Rate";
 
 function Home() {
 
-    const [key, setKey] = React.useState("1");
+    const [key, setKey] = React.useState("12");
 
     const handleClick = (e) => {
         console.log(e.eventKey);
@@ -53,7 +47,7 @@ function Home() {
             case "11":
                 return <div>未完成</div>;
             case "12":
-                return <div>未完成</div>;
+                return <Rate />;
             case "13":
                 return <div>未完成</div>;
             case "14":
@@ -92,7 +86,7 @@ function Home() {
     }
 
     return <div className="home">
-        <Menu onClick={handleClick}>
+        <Menu defaultKey="1" onClick={handleClick}>
             <Menu.SubMenu key="1" title="DL_NewDA_DEV1"></Menu.SubMenu>
             <Menu.SubMenu key="2" title="简介"></Menu.SubMenu>
             <Menu.SubMenu key="3" title="成员"></Menu.SubMenu>

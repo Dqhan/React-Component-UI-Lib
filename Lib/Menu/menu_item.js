@@ -27,21 +27,21 @@ var Item = function Item(_props) {
     });
   };
 
-  var _onMouseEnter = function _onMouseEnter(e) {
-    var _props2 = _props;
-  };
-
-  var _onMouseLeave = function _onMouseLeave(e) {
-    var _props3 = _props;
-  };
-
-  var _onMouseOver = function _onMouseOver(e) {
+  var _onMouseHover = function _onMouseHover(e) {
     var _props5 = _props,
-      onMouseOver = _props5.onMouseOver;
-    onMouseOver({
-      key: _eventKey,
-      domEvent: e,
-    })
+      onMouseHover = _props5.onMouseHover;
+    if (e.nativeEvent.type === "mouseover")
+      onMouseHover({
+        key: _eventKey,
+        domEvent: e,
+        hover: true,
+      });
+    else
+      onMouseHover({
+        key: _eventKey,
+        domEvent: e,
+        hover: false,
+      });
   };
 
   var _onTitleClick = function _onTitleClick(e) {
@@ -52,7 +52,8 @@ var Item = function Item(_props) {
 
   var _mouseEvent = {
     onClick: _onTitleClick,
-    onMouseOver: _onMouseOver
+    onMouseOver: _onMouseHover,
+    onMouseLeave: _onMouseHover,
   };
 
   var _renderTitle = function _renderTitle() {
@@ -64,7 +65,7 @@ var Item = function Item(_props) {
       Object.assign(
         {},
         {
-          className: titleClassName
+          className: titleClassName,
         },
         _mouseEvent
       ),

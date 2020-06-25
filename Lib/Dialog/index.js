@@ -16,7 +16,7 @@ let Modal = function Modal(props) {
     React.useEffect(() => {
 
         return () => {
-            document.body.removeChild(divNode);
+            // document.body.removeChild(divNode);
         }
 
     }, []);

@@ -66,41 +66,45 @@ var SubMenu = function SubMenu(_props) {
     });
   };
 
-  var _onMouseEnter = function _onMouseEnter(e) {
-    var _props2 = _props;
-  };
-
   var _onMouseLeave = function _onMouseLeave(e) {
     var _props3 = _props;
   };
 
-  var _onMouseOver = function _onMouseOver(info) {
+  var _onMouseHover = function _onMouseHover(info) {
     var _props5 = _props,
-      onMouseOver = _props5.onMouseOver;
-    onMouseOver({
+      onMouseHover = _props5.onMouseHover;
+    onMouseHover({
       key: info.key,
       domEvent: info.domEvent,
+      hover: info.hover,
     });
   };
 
-  var _onTitleMouseOver = function _onTitleMouseOver(e) {
+  var _onTitleMouseHover = function _onTitleMouseHover(e) {
     e.preventDefault();
     var _props6 = _props,
-      onMouseOver = _props6.onMouseOver;
-    onMouseOver({
-      key: _eventKey,
-      domEvent: e,
-    });
-  }
+      onMouseHover = _props6.onMouseHover;
+    if (e.nativeEvent.type == "mouseover")
+      onMouseHover({
+        key: _eventKey,
+        domEvent: e,
+        hover: true,
+      });
+    else
+      onMouseHover({
+        key: _eventKey,
+        domEvent: e,
+        hover: false,
+      });
+  };
 
   var _titleMouseEvent = {
     onClick: _onTitleClick,
-    onMouseOver: _onTitleMouseOver,
-    onMouseLeave: _onMouseLeave,
+    onMouseOver: _onTitleMouseHover,
+    onMouseLeave: _onTitleMouseHover,
   };
 
   var _renderMenuTitle = function _renderMenuTitle() {
-
     var titleClassName = "".concat(_preflxCls, "-cell-title");
     if (_selected) titleClassName = titleClassName.concat(" selected");
     if (_hover) titleClassName = titleClassName.concat(" hover");
@@ -112,7 +116,7 @@ var SubMenu = function SubMenu(_props) {
           ref: _saveRef("title"),
         },
         {
-          className: titleClassName
+          className: titleClassName,
         },
         _titleMouseEvent
       ),
@@ -124,13 +128,12 @@ var SubMenu = function SubMenu(_props) {
   var _mouseEvent = {
     onClick: _onClick,
     onSelected: _onSelected,
-    onMouseOver: _onMouseOver,
-    onMouseEnter: _onMouseEnter,
+    onMouseHover: _onMouseHover,
   };
 
   var _menuGroupProps = {
     selectedKeys: _selectedKeys,
-    hoverKeys: _hoverKeys
+    hoverKeys: _hoverKeys,
   };
 
   var _renderMenuItme = function _renderMenuItme(c, i) {
@@ -143,14 +146,14 @@ var SubMenu = function SubMenu(_props) {
   var _renderMenuCellContainer = function _renderMenuCellContainer() {
     return _extend === true
       ? React.createElement(
-        "ul",
-        {
-          className: "".concat(_preflxCls, "-cell-container"),
-        },
-        React.Children.map(_children, function (c, i) {
-          return _renderMenuItme(c, i);
-        })
-      )
+          "ul",
+          {
+            className: "".concat(_preflxCls, "-cell-container"),
+          },
+          React.Children.map(_children, function (c, i) {
+            return _renderMenuItme(c, i);
+          })
+        )
       : null;
   };
 

@@ -1,0 +1,66 @@
+.ui-rate {
+    list-style: none;
+    font-size : 20px;
+    color     : rgb(255, 255, 0);
+
+    .ui-rate-star {
+        cursor            : pointer;
+        margin-right      : 8px;
+        display           : inline-block;
+        position          : relative;
+        padding           : 0;
+        color             : inherit;
+        cursor            : pointer;
+        -webkit-transition: all .3s;
+        transition        : all .3s;
+
+        .ui-rate-star-first,
+        .ui-rate-star-second {
+            color: #f0f0f0;
+        }
+
+        .ui-rate-star-first {
+            position: absolute;
+            top     : 0;
+            left    : 0;
+            width   : 50%;
+            height  : 100%;
+            overflow: hidden;
+            opacity : 0;
+        }
+
+        .ui-rate-star-second {
+            transition: all .3s;
+        }
+    }
+
+    .rate-star-full {
+        opacity: 1;
+        color  : inherit;
+
+        .ui-rate-star-first {
+            color: inherit;
+        }
+
+        .ui-rate-star-second {
+            color: inherit;
+        }
+    }
+
+    .rate-star-half {
+        opacity: 1;
+        color  : inherit;
+
+        .ui-rate-star-first {
+            color  : inherit;
+            opacity: 1;
+        }
+
+        .ui-rate-star-second {}
+    }
+
+    .rate-star-zero {}
+
+    .rate-star-active {}
+
+}
