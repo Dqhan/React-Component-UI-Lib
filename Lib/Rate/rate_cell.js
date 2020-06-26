@@ -1,7 +1,9 @@
 import { Svg, Path } from "glamorous";
 
-function RateCell(_props) {
-  var _preflxCls = _props.preflxCls;
+function InternalRateCell(_props, ref) {
+  var _preflxCls = _props.preflxCls,
+    _index = _props.index,
+    _hoverValue = _props.hoverValue;
 
   var _renderIcon = function _renderIcon() {
     return React.createElement(
@@ -50,25 +52,52 @@ function RateCell(_props) {
   var _onMouseHover = function _onMouseHover(e) {
     var _props0 = _props,
       onMouseHover = _props0.onMouseHover;
-    onMouseHover({});
+
+    if (e.nativeEvent.type == "mouseover")
+      onMouseHover({
+        index: _index,
+        domEvent: e,
+      });
+    else {
+      onMouseHover({
+        index: undefined,
+        domEvent: e,
+      });
+    }
   };
 
   var mouseEvent = {
     onMouseOver: _onMouseHover,
+    onMouseLeave: _onMouseHover,
   };
+
+  var starClassName = "".concat(_preflxCls, "-star");
+
+  if (_hoverValue > _index) {
+    if (_hoverValue - 1 > _index) {
+      starClassName = starClassName.concat(" rate-star-full");
+    } else {
+      if (_hoverValue % 1 === 0)
+        starClassName = starClassName.concat(" rate-star-full");
+      else starClassName = starClassName.concat(" rate-star-half");
+    }
+  }
 
   return React.createElement(
     "li",
     Object.assign(
       {},
       {
-        className: "".concat(_preflxCls, "-star"),
+        ref: ref,
+        className: starClassName,
       },
       mouseEvent
     ),
     _renderStar()
   );
 }
+
+var RateCell = React.forwardRef(InternalRateCell);
 
 RateCell.defaultProps = {
   preflxCls: "ui-rate",
